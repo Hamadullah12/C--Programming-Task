@@ -31,3 +31,47 @@
 //     myFunc();
 // }
 // so its clear that we cannot defined function in main we just have to call it in a main function
+
+// practice problem
+// #include <iostream>
+// using namespace std;
+// void doA()
+// {
+//     cout << "In D of A\n";
+// }
+// void doB()
+// {
+//     cout << "In D of B\n";
+//     doA();
+// }
+// int main()
+// {
+//     cout << "Starting ..............\n";
+//     doA();
+//     doB();
+//     cout << "Ending ................\n";
+//     return 0;
+// }
+
+// PARMAETERS: The information that is passed to the functions is known as parameters.
+// refernce is used here i will explain it to you.
+// #include <iostream>
+// using namespace std;
+// void ParameterData(string &name, int &age)
+// {
+//     cout << "what is your name?" << endl;
+//     cin.ignore();
+//     getline(cin, name);
+//     cout << "What is your age ?" << endl;
+//     cin >> age;
+// }
+// int main()
+// {
+//     string nameData;
+//     int ageData;
+//     ParameterData(nameData, ageData);
+//     cout << "Your name is " << nameData << endl;
+//     cout << "Your age is " << ageData << endl;
+
+//     return 0;
+// }
