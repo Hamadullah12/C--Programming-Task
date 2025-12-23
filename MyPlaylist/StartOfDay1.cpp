@@ -109,3 +109,13 @@
 //     cout << "You entered" << num << endl;
 //     return 0;
 // }
+
+// ========================================================================
+// POINTERS : 
+
+#include<iostream>
+using namespace std;
+int main(){
+
+return 0;
+}
