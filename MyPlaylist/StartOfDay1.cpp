@@ -83,3 +83,29 @@
 
 //     return 0;
 // }
+
+// Practice program
+
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int num;
+//     for (int i = 0; i < 10; i++)
+//     {
+//         cout << "input any number?" << endl;
+//         cin >> num;
+//         if (num < 0)
+//         {
+//             cout << "You entered negative value so this is skipped " << endl;
+//             continue;
+//         }
+//         else if (num == 0)
+//         {
+//             cout << "You entered 0 so the loop is break" << endl;
+//             break;
+//         }
+//     }
+//     cout << "You entered" << num << endl;
+//     return 0;
+// }
