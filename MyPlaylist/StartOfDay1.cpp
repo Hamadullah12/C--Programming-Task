@@ -111,11 +111,19 @@
 // }
 
 // ========================================================================
-// POINTERS : 
+// POINTERS : Is a data type which store the address of other data types "&" address of operator "*" is a dereference  operator
 
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main(){
+int main()
+{
+    int a = 5;
+    int *b = &a;
+    cout << "The address of b is " << b << endl;  // here the address will be same as we assign them to each other "0x5ffe94"
+    cout << "The address of a is " << &a << endl; // here the address will be same as we assign them to each other "0x5ffe94"
+    // Now if we want to find the value at the addres of b we will use derefence operator  "*".
 
-return 0;
+    cout << "The value of b on address a is " << *b << endl;
+
+    return 0;
 }
