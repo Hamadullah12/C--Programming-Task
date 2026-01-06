@@ -113,17 +113,33 @@
 // ========================================================================
 // POINTERS : Is a data type which store the address of other data types "&" address of operator "*" is a dereference  operator
 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int a = 5;
+//     int *b = &a;
+//     cout << "Address of a (&a): " << &a << endl;                // here the address will be same as we assign them to each other "0x5ffe94"
+//     cout << "Value stored in b (address of a):  " << b << endl; // here the address will be same as we assign them to each other "0x5ffe94"
+//     cout << "the value of a in b is = " << *b << endl;          // Now if we want to find the value at the addres of b we will use derefence operator  "*".
+
+//     // cout << "The value of b on address a is " << *b << endl;
+
+//     // POINTER TO POINTER
+//     int **c = &b;
+
+//     cout << "Address of b (&b): " << &b << endl;
+
+//     cout << "Value stored in c (address of b): " << c << endl;
+//     cout << "Value at *c (same as b, address of a): " << *c << endl;
+//     cout << "Value at **c (value of a): " << **c << endl;
+
+//     return 0;
+// }
+
+#include<iostream>
 using namespace std;
-int main()
-{
-    int a = 5;
-    int *b = &a;
-    cout << "The address of b is " << b << endl;  // here the address will be same as we assign them to each other "0x5ffe94"
-    cout << "The address of a is " << &a << endl; // here the address will be same as we assign them to each other "0x5ffe94"
-    // Now if we want to find the value at the addres of b we will use derefence operator  "*".
+int main(){
 
-    cout << "The value of b on address a is " << *b << endl;
-
-    return 0;
+return 0;
 }
