@@ -147,16 +147,29 @@ int main()
     int marks[5] = {23, 43, 54, 23, 65};
     int mathMarks[5] = {456, 234, 554, 231, 653};
     cout << "These are math marks array" << endl;
+    // Here i want to change the value of some items from array.
+    cout << "I change the value of some array  items " << endl;
+    mathMarks[0] = 1;
+    mathMarks[1] = 2;
+    mathMarks[2] = 3;
     cout << mathMarks[0] << endl
          << mathMarks[1] << endl
          << mathMarks[2] << endl
          << mathMarks[3] << endl
          << mathMarks[4] << endl;
     cout << "These are marks arry" << endl;
+
+    // here i also want to change the value of some items from array.
+    cout << "I change the value of some array  items " << endl;
+
+    marks[0] = 4;
+    marks[1] = 5;
+    marks[2] = 6;
     cout << marks[0] << endl
          << marks[1] << endl
          << marks[2] << endl
          << marks[3] << endl
          << marks[4] << endl;
+
     return 0;
 }
