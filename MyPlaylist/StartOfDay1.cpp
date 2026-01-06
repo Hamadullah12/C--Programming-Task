@@ -137,9 +137,26 @@
 //     return 0;
 // }
 
-#include<iostream>
-using namespace std;
-int main(){
+// ARRAYS AND POINTERS
+// ARRAY :It is a collection of items of similar type stored in a contingous memory locations.
 
-return 0;
+#include <iostream>
+using namespace std;
+int main()
+{
+    int marks[5] = {23, 43, 54, 23, 65};
+    int mathMarks[5] = {456, 234, 554, 231, 653};
+    cout << "These are math marks array" << endl;
+    cout << mathMarks[0] << endl
+         << mathMarks[1] << endl
+         << mathMarks[2] << endl
+         << mathMarks[3] << endl
+         << mathMarks[4] << endl;
+    cout << "These are marks arry" << endl;
+    cout << marks[0] << endl
+         << marks[1] << endl
+         << marks[2] << endl
+         << marks[3] << endl
+         << marks[4] << endl;
+    return 0;
 }
