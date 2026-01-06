@@ -148,28 +148,42 @@ int main()
     int mathMarks[5] = {456, 234, 554, 231, 653};
     cout << "These are math marks array" << endl;
     // Here i want to change the value of some items from array.
-    cout << "I change the value of some array  items " << endl;
-    mathMarks[0] = 1;
-    mathMarks[1] = 2;
-    mathMarks[2] = 3;
-    cout << mathMarks[0] << endl
-         << mathMarks[1] << endl
-         << mathMarks[2] << endl
-         << mathMarks[3] << endl
-         << mathMarks[4] << endl;
+    // cout << "I change the value of some array  items " << endl;
+    // mathMarks[0] = 1;
+    // mathMarks[1] = 2;
+    // mathMarks[2] = 3;
+    // cout << mathMarks[0] << endl
+    //      << mathMarks[1] << endl
+    //      << mathMarks[2] << endl
+    //      << mathMarks[3] << endl
+    //      << mathMarks[4] << endl;
+    //   PRINTING MATHS MARKS ITEMS ARRAY USING FOR LOOP
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "The value of maths marks " << i << " is " << mathMarks[i] << endl;
+    }
     cout << "These are marks arry" << endl;
 
     // here i also want to change the value of some items from array.
-    cout << "I change the value of some array  items " << endl;
+    // cout << "I change the value of some array  items " << endl;
 
-    marks[0] = 4;
-    marks[1] = 5;
-    marks[2] = 6;
-    cout << marks[0] << endl
-         << marks[1] << endl
-         << marks[2] << endl
-         << marks[3] << endl
-         << marks[4] << endl;
+    // marks[0] = 4;
+    // marks[1] = 5;
+    // marks[2] = 6;
+    // cout << marks[0] << endl
+    //      << marks[1] << endl
+    //      << marks[2] << endl
+    //      << marks[3] << endl
+    //      << marks[4] << endl;
+
+    // PRINTING ARRAYS ITEMS OF MARKS USING DO WHILE LOOPS
+
+    int i = 0;
+    do
+    {
+        cout << "The value of marks " << i << " is " << marks[i] << endl;
+        i++;
+    } while (i < 5);
 
     return 0;
 }
