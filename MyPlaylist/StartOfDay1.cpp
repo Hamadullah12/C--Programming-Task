@@ -221,27 +221,51 @@
 // // // FUCNTION PROTOTYPES : Is is used when sometimes we declared function at the end of the main so to tell
 // // the compiler as the fucntion are to be executed later so we just  decalared function at the start .
 
-#include <iostream>
-using namespace std;
-int sumOfProto(int a, int b);
-void greet();
-int main()
-{
-    int valuea, valueb;
-    cout << "Please enter two values ?" << endl;
-    cin >> valuea >> valueb;
-    cout << "The sum of function sum of prototype is " << sumOfProto(valuea, valueb) << endl;
-    greet();
-}
-int sumOfProto(int a, int b)
-{
-    int c = a + b;
-    return c;
-}
-void greet()
-{
-    cout << "hello world" << endl;
-}
+// #include <iostream>
+// using namespace std;
+// int sumOfProto(int a, int b);
+// void greet();
+// int main()
+// {
+//     int valuea, valueb;
+//     cout << "Please enter two values ?" << endl;
+//     cin >> valuea >> valueb;
+//     cout << "The sum of function sum of prototype is " << sumOfProto(valuea, valueb) << endl;
+//     greet();
+// }
+// int sumOfProto(int a, int b)
+// {
+//     int c = a + b;
+//     return c;
+// }
+// void greet()
+// {
+//     cout << "hello world" << endl;
+// }
 // when to use void and return function
 // If the function sending the vlaue back we have to use return type
 // If the function is not sending back the value use void , jsut for display output and update value through reference
+
+// Practice problem
+
+#include <iostream>
+using namespace std;
+void myData(string name, string address, int num)
+{
+    cout << "My name  is " << name << endl;
+    cout << "My address is " << address << endl;
+    cout << "My number is " << num << endl;
+}
+int main()
+{
+    string myName, myAdd;
+    int myNum;
+    cout << "WHat is your name ?" << endl;
+    getline(cin, myName);
+    cout << "What is your address" << endl;
+    getline(cin, myAdd);
+    cout << "What is your mobile number ?" << endl;
+    cin >> myNum;
+    myData(myName, myAdd, myNum);
+    return 0;
+}
