@@ -417,5 +417,19 @@
 //     return 0;
 // }
 
-
 // PAPER QUESTIONS:
+
+#include <iostream>
+using namespace std;
+void custRech(int &balance)
+{
+    balance += 50;
+}
+int main()
+{
+    int initialBalance = 100;
+    cout << "balance before update" << initialBalance << endl;
+    custRech(initialBalance);
+    cout << "balnce after recharge update" << initialBalance << endl;
+    return 0;
+}
