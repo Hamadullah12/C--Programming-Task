@@ -342,3 +342,80 @@
 
 //     return 0;
 // }
+
+// default pareameter
+
+// #include <iostream>
+// using namespace std;
+// double interestRate(int savings, double rateFactor = 2.34)
+// {
+//     return savings * rateFactor;
+// }
+// int main()
+// {
+//     int mySavings = 200000;
+//     cout << "if you have that money " << mySavings << "in your bank account you will recience that much amount " << interestRate(mySavings) << " After 1 year " << endl;
+//     // hrer we are overridng the value
+//     cout << "if you have that money " << mySavings << "in your bank account you will recience that much amount " << interestRate(mySavings, 1.03) << " After 1 year " << endl;
+//     return 0;
+// }
+
+// ARRAYS:
+
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     const int numberOfEmpl = 4;
+//     int hours_worked[numberOfEmpl];
+//     for (int i = 0; i < numberOfEmpl; i++)
+//     {
+//         cout << "How many hours of work have done in this week ?" << endl;
+//         cin >> hours_worked[i];
+//     }
+//     cout << "Each employe has worked for that much hours in this week " << endl;
+//     for (int i = 0; i < numberOfEmpl; i++)
+//     {
+//         cout << "Hourse worked by each employe" << " [ " << i << " ] " << hours_worked[i] << endl;
+//     }
+
+//     return 0;
+// }
+
+// practice paper question on poointer
+
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int mobileStock = 50;
+//     int *ptr = &mobileStock;
+//     cout << "The stock value using pointer ptr is " << *ptr << endl;
+//     *ptr -= 10;
+//     cout << "THe stock after selling 10 phones is " << *ptr << endl;
+//     return 0;
+// }
+
+// ARRAYS : SUM OF ELEMENTS IN ARRAY
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int arr[] = {3, 4, 2, 5, 3, 2, 4};
+//     int n = sizeof(arr) / sizeof(arr[0]); // if we dont knwo the size of array
+//     // int sum = 0;
+//     int prod = 1;
+//     cout << n << endl;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << arr[i] << " ";
+//         // sum = sum + arr[i];
+//         prod = prod * arr[i];
+//     }
+//     // cout << "The sum of array element is " << sum << endl;
+//     cout << "The product of array element is " << prod << endl;
+//     return 0;
+// }
+
+
+// PAPER QUESTIONS:
