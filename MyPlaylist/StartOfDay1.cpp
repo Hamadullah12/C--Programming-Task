@@ -248,24 +248,97 @@
 
 // Practice problem
 
-#include <iostream>
-using namespace std;
-void myData(string name, string address, int num)
-{
-    cout << "My name  is " << name << endl;
-    cout << "My address is " << address << endl;
-    cout << "My number is " << num << endl;
-}
-int main()
-{
-    string myName, myAdd;
-    int myNum;
-    cout << "WHat is your name ?" << endl;
-    getline(cin, myName);
-    cout << "What is your address" << endl;
-    getline(cin, myAdd);
-    cout << "What is your mobile number ?" << endl;
-    cin >> myNum;
-    myData(myName, myAdd, myNum);
-    return 0;
-}
+// #include <iostream>
+// using namespace std;
+// void myData(string name, string address, int num)
+// {
+//     cout << "My name  is " << name << endl;
+//     cout << "My address is " << address << endl;
+//     cout << "My number is " << num << endl;
+// }
+// int main()
+// {
+//     string myName, myAdd;
+//     int myNum;
+//     cout << "WHat is your name ?" << endl;
+//     getline(cin, myName);
+//     cout << "What is your address" << endl;
+//     getline(cin, myAdd);
+//     cout << "What is your mobile number ?" << endl;
+//     cin >> myNum;
+//     myData(myName, myAdd, myNum);
+//     return 0;
+// }
+
+// CALL BY VALUE AND CALL BY REFERNCE
+// If we have to modify the original values we have to use call by refernce.
+// For actual swapping we have to use reference paramter adn reference pointer
+// #include <iostream>
+// using namespace std;
+// // void swap(int a, int b)//this is not the correct method to swap
+// // void swapRefe(int &a, int &b)
+// void swapPoin(int *a, int *b)
+// {
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// int main()
+// {
+//     cout << "======================" << endl;
+//     int x = 7, y = 5;
+//     cout << "Value of a before swap" << x << endl
+//          << "Value of b before swap" << y << endl;
+//     // swap(x, y);this will not swap the values it just copies the value to the pararmeter
+//     // swapRefe(x, y);this was using reference parameter
+//     // swapPoin(&x, &y);this swap is performed using pointer reference nethod
+//     cout << "The value of a after swapping is " << x << endl;
+//     cout << "The value of b after swapping is " << y << endl;
+//     return 0;
+// }
+
+// PRACTICE PROBLEM ON REFERENCE
+// #include <iostream>
+// using namespace std;
+// void increaseNum(int &x)
+// {
+//     // x = x + 5;
+//     x = x * 2;
+// }
+// int main()
+// {
+//     int a = 10;
+//     // cout << "Value of a before adding five  =" << a << endl;
+//     cout << "Value of a before doubling it  =" << a << endl;
+//     increaseNum(a);
+//     // cout << "Value of a after adding five = " << a << endl;
+//     cout << "Value of a after doubling it= " << a << endl;
+
+//     return 0;
+// }
+
+// INCREASING ARRAY ELEMENTS USING REFRENCE PARAMTER
+
+// #include <iostream>
+// using namespace std;
+// void increaseArr(int &arrElem)
+// {
+//     arrElem = arrElem + 30;
+// }
+// int main()
+// {
+//     int arr[5] = {1, 34, 32, 54, 34};
+//     cout << "Before updating " << endl;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         cout << "THe value at " << i << " = " << arr[i] << endl;
+//     }
+//     increaseArr(arr[0]);
+//     cout << "After updating array elemnt " << endl;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         cout << "THe value at " << i << " = " << arr[i] << endl;
+//     }
+
+//     return 0;
+// }
