@@ -224,16 +224,24 @@
 #include <iostream>
 using namespace std;
 int sumOfProto(int a, int b);
+void greet();
 int main()
 {
     int valuea, valueb;
     cout << "Please enter two values ?" << endl;
     cin >> valuea >> valueb;
     cout << "The sum of function sum of prototype is " << sumOfProto(valuea, valueb) << endl;
-    return 0;
+    greet();
 }
 int sumOfProto(int a, int b)
 {
     int c = a + b;
     return c;
 }
+void greet()
+{
+    cout << "hello world" << endl;
+}
+// when to use void and return function
+// If the function sending the vlaue back we have to use return type
+// If the function is not sending back the value use void , jsut for display output and update value through reference
