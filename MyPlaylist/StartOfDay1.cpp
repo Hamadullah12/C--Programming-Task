@@ -184,14 +184,14 @@
 // //     //         cout << "The value of marks " << i << " is " << marks[i] << endl;
 // //     //         i++;
 // //     //     } while (i < 5);
-// //     // pointer arithmetic :
+// //     // pointer arithmetic in arrays. :
 
 // //     // int *p = marks;
 // //     // cout << "The value of at addres p is " << *p << endl;
-// //     // cout << "The value of at addres p is " << *(++p) << endl;
-// //     // cout << "The value of at addres p is " << *(++p) << endl;
-// //     // cout << "The value of at addres p is " << *(++p) << endl;
-// //     // cout << "The value of at addres p is " << *(++p) << endl;
+// //     // cout << "The value of at addres p+1 is " << *(++p) << endl;
+// //     // cout << "The value of at addres p+2 is " << *(++p) << endl;
+// //     // cout << "The value of at addres p+3 is " << *(++p) << endl;
+// //     // cout << "The value of at addres p+4 is " << *(++p) << endl;
 
 // //     return 0;
 // // }
@@ -219,7 +219,7 @@
 // }
 
 // // // FUCNTION PROTOTYPES : Is is used when sometimes we declared function at the end of the main so to tell
-// // the compiler as the fucntion are to be executed later so we just  decalared function at the start .
+// // the compiler as the fucntion are to be executed later so we just  decalared function at the start.
 
 // #include <iostream>
 // using namespace std;
@@ -272,7 +272,7 @@
 
 // CALL BY VALUE AND CALL BY REFERNCE
 // If we have to modify the original values we have to use call by refernce.
-// For actual swapping we have to use reference paramter adn reference pointer
+// For actual swapping we have to use reference paramter and reference pointer
 // #include <iostream>
 // using namespace std;
 // // void swap(int a, int b)//this is not the correct method to swap
@@ -340,6 +340,29 @@
 //         cout << "THe value at " << i << " = " << arr[i] << endl;
 //     }
 
+//     return 0;
+// }
+// #include <iostream>
+// using namespace std;
+// void arrRet(int &arrElem)
+// {
+//     arrElem += 30;
+// }
+// int main()
+// {
+//     int arr[3] = {23, 43, 23};
+//     cout << "Before Updating " << endl;
+//     for (int i = 0; i < 3; i++)
+//     {
+//         cout << "Array Elements" << arr[i] << endl;
+//     }
+//     arrRet(arr[0]);
+//     arrRet(arr[1]);
+//     cout << "After updating" << endl;
+//     for (int i = 0; i < 3; i++)
+//     {
+//         cout << "Array Elements " << arr[i] << endl;
+//     }
 //     return 0;
 // }
 
@@ -418,18 +441,147 @@
 // }
 
 // PAPER QUESTIONS:
+// Q1:A mobile shop in Pakistan wants to update a customer’s mobile balance after the customer adds recharge.
+// Initially, the customer has a mobile balance of Rs. 100. When the customer recharges the balance, Rs. 50 should be added to the existing balance.
+// To ensure the balance is updated permanently, the system must use pass by reference.
+// Display balance before and after function call in main().
 
-#include <iostream>
-using namespace std;
-void custRech(int &balance)
-{
-    balance += 50;
-}
-int main()
-{
-    int initialBalance = 100;
-    cout << "balance before update" << initialBalance << endl;
-    custRech(initialBalance);
-    cout << "balnce after recharge update" << initialBalance << endl;
-    return 0;
-}
+// #include <iostream>
+// using namespace std;
+// void custRech(int &balance)
+// {
+//     balance += 50;
+// }
+// int main()
+// {
+//     int initialBalance = 100;
+//     cout << "balance before update" << initialBalance << endl;
+//     custRech(initialBalance);
+//     cout << "balnce after recharge update" << initialBalance << endl;
+//     return 0;
+// }
+
+// Question 02:[CLO-03]
+// 2.1
+// A college keeps records of student marks for a small class. The marks of the 5 students are already known: 78, 85, 90, 67, 88.
+// Write a C++ program that:
+// 1. Initializes an array with the marks: 78, 85, 90, 67, 88.
+// 2. Take a number from the user to be searched in the array.
+// 3. Use search to check whether the mark exists in the array.
+// 4. Displays:
+// o "Marks <key> found at position <position>" if the mark is found
+// o "Marks <key> not found in the array" if the mark does not exist.
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int key;
+//     int size = 5;
+//     int marksArr[size] = {78, 85, 90, 67, 88};
+//     cout << "ENTER A NUMBER TO BE SEARCHED IN THE ARRAY." << endl;
+//     cin >> key;
+//     bool found = false;
+//     int position = -1;
+//     for (int i = 0; i < size; i++)
+//     {
+//         if (marksArr[i] == key)
+//         {
+//             found = true;
+//             position = i;
+//             break;
+//         }
+//     }
+//     if (found)
+//     {
+//         cout << "The key is " << key << "found at postion " << position << endl;
+//     }
+//     else
+//     {
+//         cout << "The key is not found in the array" << endl;
+//     }
+
+//     return 0;
+// }
+
+// MAIN QUESTION
+
+// #include <iostream>
+// using namespace std;
+// // Item cost calculation
+// double calculateItemCost(double price, double quantity)
+// {
+//     return price * quantity;
+// }
+// // total bill calculation
+// double calculateTotalBill(double cost1, double cost2, double cost3, double cost4)
+// {
+//     return cost1 + cost2 + cost3 + cost4;
+// }
+// void displayReceipt(double fc, double sc, double oc, double rc, double total)
+// {
+//     cout << "Utility Store Corporation of Pakistan " << endl;
+//     cout << "The cost of flour is " << fc << endl;
+//     cout << "The cost of sugar is " << sc << endl;
+//     cout << "The cost of oil is " << oc << endl;
+//     cout << "THe cost or rice is " << rc << endl;
+//     cout << "The total cost of grocery is " << total << endl;
+// }
+// int main()
+// {
+//     double flourPrice = 120.0;
+//     double sugarPrice = 150.0;
+//     double oilPrice = 500.0;
+//     double ricePrice = 200.0;
+//     int fq, sq, oq, rq;
+//     cout << "How much is the quantity of flour " << endl;
+//     cin >> fq;
+//     cout << "How much is the quantity of sugar " << endl;
+//     cin >> sq;
+//     cout << "How much is the quantity of oil " << endl;
+//     cin >> oq;
+//     cout << "How much is the quantity of rice " << endl;
+//     cin >> rq;
+//     double flourCost = calculateItemCost(flourPrice, fq);
+//     double sugarCost = calculateItemCost(sugarPrice, sq);
+//     double oilCost = calculateItemCost(oilPrice, oq);
+//     double riceCost = calculateItemCost(ricePrice, rq);
+
+//     double totalBill = calculateTotalBill(flourCost, sugarCost, oilCost, riceCost);
+//     displayReceipt(flourCost, sugarCost, oilCost, riceCost, totalBill);
+//     return 0;
+// }
+
+// 2D ARRAY
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int arr[3][4] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+//     cout << "Displaying the table ====" << endl;
+//     for (int row = 0; row < 3; row++)
+//     {
+//         for (int col = 0; col < 4; col++)
+//         {
+//             cout << arr[row][col] << " ";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int arr[4] = {34, 23, 23, 12};
+//     int sum = 0;
+//     for (int i = 0; i < 4;  i++)
+//     {
+//         cout << "Array Elemnt to be added to sum " << arr[i] << endl;
+//         sum += arr[i];
+//     }
+//     cout << "THe sum of an array is " << sum << endl;
+//     return 0;
+// }
+
+
