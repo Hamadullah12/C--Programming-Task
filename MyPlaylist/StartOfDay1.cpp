@@ -584,4 +584,81 @@
 //     return 0;
 // }
 
+// QUESTION 1 — Passing Array to Function (CORE)
 
+// A company stores salaries of 5 employees.
+
+// Write a program that:
+
+// Stores salaries in an array
+
+// Passes the array to a function displaySalaries()
+
+// The function prints all salaries
+
+// No printing should be done in main()
+
+// #include <iostream>
+// using namespace std;
+// void displaySalaries(int arr[], int size)
+// {
+//     for (int i = 0; i < size; i++)
+//     {
+//         cout << "The salareis of employe si " << arr[i] << endl;
+//     }
+// }
+// int main()
+// {
+//     const int sizeOfEmpl = 5;
+//     int arrOfEmp[sizeOfEmpl];
+//     cout << "ENter your salaries." << endl;
+//     for (int i = 0; i < sizeOfEmpl; i++)
+//     {
+//         cin >> arrOfEmp[i];
+//     }
+//     displaySalaries(arrOfEmp, sizeOfEmpl);
+//     return 0;
+// }
+
+// QUESTION 2 — Array + Function + Return Value
+
+// Write a program that :
+
+//     Stores marks of 6 students in an array
+
+//         Passes the array to a function
+//         calculateSum()
+
+//             The function returns the sum of marks
+
+//     main() prints the returned sum
+
+//     Focus :
+
+//     Array passed to function
+
+//     Return value from function
+
+#include <iostream>
+using namespace std;
+int calculateSum(int arr[], int size)
+{
+    int sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        sum += arr[i];
+    }
+    return sum;
+}
+int main()
+{
+    int arrOfStu[6];
+    cout << "Enter your marks " << endl;
+    for (int i = 0; i < 6; i++)
+    {
+        cin >> arrOfStu[i];
+    }
+    int totalSum = calculateSum(arrOfStu, 6);
+    cout << "The total sum is " << totalSum << endl;
+    return 0;
+}
