@@ -639,26 +639,48 @@
 
 //     Return value from function
 
+// #include <iostream>
+// using namespace std;
+// int calculateSum(int arr[], int size)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < size; i++)
+//     {
+//         sum += arr[i];
+//     }
+//     return sum;
+// }
+// int main()
+// {
+//     int arrOfStu[6];
+//     cout << "Enter your marks " << endl;
+//     for (int i = 0; i < 6; i++)
+//     {
+//         cin >> arrOfStu[i];
+//     }
+//     int totalSum = calculateSum(arrOfStu, 6);
+//     cout << "The total sum is " << totalSum << endl;
+//     return 0;
+// }
+
+//
+
 #include <iostream>
 using namespace std;
-int calculateSum(int arr[], int size)
+void arrFun(int *arr, int size)
 {
-    int sum = 0;
     for (int i = 0; i < size; i++)
     {
-        sum += arr[i];
+        *(arr + i) += 10;
     }
-    return sum;
 }
 int main()
 {
-    int arrOfStu[6];
-    cout << "Enter your marks " << endl;
-    for (int i = 0; i < 6; i++)
+    int arrEl[3] = {1, 2, 3};
+    arrFun(arrEl, 3);
+    for (int i = 0; i < 3; i++)
     {
-        cin >> arrOfStu[i];
+        cout << "Array " << arrEl[i] << endl;
     }
-    int totalSum = calculateSum(arrOfStu, 6);
-    cout << "The total sum is " << totalSum << endl;
     return 0;
 }
