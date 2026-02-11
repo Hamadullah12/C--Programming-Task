@@ -1,19 +1,22 @@
+// Structures: It is user defined contiguous data type that group variables of different type under a single name..
+
 #include <iostream>
-#include <string>
 using namespace std;
-struct StudData
+struct Employee // here employe is a data type just like int and double and char..
 {
-    string name;
-    int reg;
-    int grade;
+    int id;
+    double salary;
+    string department;
 };
 
 int main()
 {
-    StudData Data1 = {"Hamad Ullah", 2032, 14};
-    cout << "Name                  :" << Data1.name << endl;
-    cout << "Registration Number   :" << Data1.reg << endl;
-    cout << "Grade                 :" << Data1.grade << endl;
-
+    Employee Manager;
+    Manager.id = 234;
+    Manager.salary = 25000.0;
+    Manager.department = "Mineral";
+    cout << "Employee id         :" << Manager.id << endl;
+    cout << "Employee Salary     :" << Manager.salary << endl;
+    cout << "Employee Department :" << Manager.department << endl;
     return 0;
 }
