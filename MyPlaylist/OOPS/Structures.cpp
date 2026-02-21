@@ -8,11 +8,17 @@ struct Employee // here employe is a data type just like int and double and char
     double salary;
     string department;
 };
+void printData(Employee emp)
+{
+    cout << "Employee id         : " << emp.id << endl;
+    cout << "Employee salary     : " << emp.salary << endl;
+    cout << "Employee id         : " << emp.department << endl;
+}
 
 int main()
 {
 
-    // SIMPLEE ASSIGNING DATA WITHOUT ARRAYS
+   // SIMPLEE ASSIGNING DATA WITHOUT ARRAYS
     // Employee Manager;
     // Manager.id = 234;
     // Manager.salary = 25000.0;
@@ -48,9 +54,7 @@ int main()
     }
     for (int j = 0; j < 3; j++)
     {
-        cout << "Your Id is         :" << team[j].id << endl;
-        cout << "Your Salary is     :" << team[j].salary << endl;
-        cout << "Your department is :" << team[j].department << endl;
+        printData(team[j]);
     }
     return 0;
 }
