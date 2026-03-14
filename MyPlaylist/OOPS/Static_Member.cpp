@@ -30,13 +30,13 @@ public:
     //     cout << "Total customer after destructor : " << totalCustomer << endl;
     // }
 
-    void display()
+    void display() const
     {
         cout << "NAME           :" << name << endl;
         cout << "ACCOUNT NUMBER :" << acc_num << endl;
         cout << "BALANCE        :" << balance << endl;
     }
-    void totalCustomerDisplay()
+    void totalCustomerDisplay() const
     {
         cout << "  TOTAL CUSTOMER :" << totalCustomer << endl;
     }
