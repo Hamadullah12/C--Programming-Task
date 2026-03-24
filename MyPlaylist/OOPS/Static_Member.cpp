@@ -3,14 +3,17 @@
 //   1.  Classes & Objects
 //   2.  Access Modifiers (private / public)
 //   3.  Constructor & this-> pointer
-//   4.  Getter Functions
-//   5.  Setter Functions
-//   6.  Static Member Variables
-//   7.  Static Member Functions
-//   8.  Const Functions
-//   9.  Const Object
-//   10. Const Parameters
-//   11. Declare inside class, define outside class
+//   4.  Getter Functions        — like a window, read private data safely
+//   5.  Setter Functions        — like a guarded door, change private data with validation
+//   6.  Static Member Variables — one shared copy across all objects (bank-wide records)
+//   7.  Static Member Functions — belongs to the class, not any object
+//   8.  Const Functions         — promises not to modify the object, safe for const objects
+//   9.  Const Object            — locked after creation, can only call const functions
+//   10. Const Parameters        — protects the passed-in value from being changed inside the function
+//   11. Declare inside class, define outside class — class is a clean menu, bodies live below
+//   12. Private Helper Functions — internal tools used by the class itself, nobody outside can call them
+//   13. Validation Functions    — validateAmount checks if amount is positive,
+//                                  validateWithdraw checks if balance is sufficient
 
 #include <iostream>
 using namespace std;
@@ -33,15 +36,20 @@ private:
     // Only one copy exists in memory — these are bank-wide records.
     static int totalBalance;
     static int totalCustomer;
-    // Helper Functions
-    bool validateAmount(const int amount) const;
-    bool validateWithdraw(const int amount) const;
+
+    // Private helper functions — internal tools used only inside the class.
+    // Nobody outside can call these directly.
+    // Think of them as a security guard — deposit and withdraw ask the guard,
+    // the guard says yes or no, and they act accordingly.
+    // This way the validation rule is written once and reused everywhere.
+    bool validateAmount(const int amount) const;   // checks if amount is positive
+    bool validateWithdraw(const int amount) const; // checks if balance is sufficient
 
 public:
     // Constructor — called automatically when an object is created.
     Customer(string name, int acc_num, int balance);
 
-    // Getters like a window. You can see the value but not touch it.
+    // Getters — like a window. You can see the value but not touch it.
     // Always const because they never modify the object.
     string getName() const;
     int getAccNum() const;
@@ -49,13 +57,16 @@ public:
 
     // Setters — like a guarded door. You can change the value
     // but only if it passes the validation check inside.
+    // Return type is void because we are saving, not returning.
     void setName(string newName);
     void setBalance(int newBalance);
 
-    // Deposit & withdraw — these change the balance incrementally.
-    // const parameter means the amount passed in cannot be
-    // accidentally changed inside the function. The balance itself
-    // is free to change — const only protects the parameter.
+    // Deposit & withdraw — change the balance incrementally (not a direct overwrite).
+    // Validation is handled by private helper functions — not written directly here.
+    // const parameter means the amount passed in is protected from being changed
+    // inside the function. The balance itself is free to change — const only
+    // protects the parameter. Each call gets its own fresh amount so future
+    // deposits and withdrawals work normally.
     void deposit(const int amount);
     void withdraw(const int amount);
 
@@ -64,6 +75,7 @@ public:
 
     // Static function — belongs to the class itself, not any object.
     // Can only access static variables. Called using Customer::
+    // No static keyword when defining outside — only written in the declaration.
     static void accessStatic();
 };
 
@@ -75,7 +87,8 @@ int Customer::totalBalance = 0;
 
 // -- FUNCTION DEFINITIONS --
 // Every function is linked back to the class using Customer::
-// This is called the scope resolution operator.
+// The :: is called the scope resolution operator — it means
+// "this function belongs to the Customer class."
 
 // Constructor
 // this-> is used because the parameter names are the same as
@@ -91,7 +104,7 @@ Customer::Customer(string name, int acc_num, int balance)
 }
 
 // Getters
-// One-liners kept compact since they just return a value.
+// One-liners kept compact since they just return a single value.
 string Customer::getName() const { return name; }
 int Customer::getAccNum() const { return acc_num; }
 int Customer::getBalance() const { return balance; }
@@ -128,65 +141,70 @@ void Customer::setBalance(int newBalance)
 }
 
 // Deposit
-// Adds to balance incrementally. const on amount means the value
-// passed in is protected — but balance and totalBalance are free to change.
-// Each call gets its own fresh amount so future deposits work normally.
+// Before adding the amount, it asks validateAmount first.
+// If validateAmount returns false, the function stops immediately using return.
+// This keeps the logic clean — no nested ifs, just an early exit.
 void Customer::deposit(const int amount)
 {
-    if (amount > 0)
-    {
-        balance += amount;
-        totalBalance += amount;
-        cout << "Deposit of " << amount << " successful." << endl;
-    }
-    else
+    if (validateAmount(amount) == false)
     {
         cout << "Invalid deposit amount." << endl;
+        return; // stop here, do not continue
     }
+
+    balance += amount;
+    totalBalance += amount;
+    cout << "Deposit of " << amount << " successful." << endl;
 }
 
 // Withdraw
-// Subtracts from balance incrementally. Checks two things:
-//   1. amount must be positive
-//   2. amount must not exceed current balance
+// Asks two guards before allowing the withdrawal:
+//   1. validateAmount  — is the amount positive?
+//   2. validateWithdraw — is the balance sufficient?
+// Both must pass. If either fails, function stops with an early return.
 void Customer::withdraw(const int amount)
 {
-    if (amount > 0 && amount <= balance)
+    if (validateAmount(amount) == false)
     {
-        balance -= amount;
-        totalBalance -= amount;
-        cout << "Withdrawal of " << amount << " successful." << endl;
+        cout << "Invalid withdrawal amount." << endl;
+        return;
     }
-    else
+
+    if (validateWithdraw(amount) == false)
     {
-        cout << "Invalid withdrawal: insufficient funds or bad amount." << endl;
+        cout << "Insufficient balance." << endl;
+        return;
     }
+
+    balance -= amount;
+    totalBalance -= amount;
+    cout << "Withdrawal of " << amount << " successful." << endl;
 }
 
-// Helper Functions
+// validateAmount — private helper
+// Returns true if amount is positive, false if zero or negative.
+// Used by both deposit and withdraw.
+// const because it only reads amount, never changes anything.
 bool Customer::validateAmount(const int amount) const
 {
     if (amount > 0)
-    {
         return true;
-    }
     else
-    {
         return false;
-    }
 }
 
+// validateWithdraw — private helper
+// Returns true if amount does not exceed current balance.
+// Returns false if there are insufficient funds.
+// const because it only reads balance, never changes anything.
 bool Customer::validateWithdraw(const int amount) const
 {
     if (amount <= balance)
-    {
         return true;
-    }
     else
-    {
         return false;
-    }
 }
+
 // Display
 // const function — only reads data, never changes anything.
 // This is why a const object can safely call it.
@@ -210,40 +228,36 @@ void Customer::accessStatic()
 
 int main()
 {
-    // Creating regular customer objects
+    // -- creating objects --
     Customer C1("Hamad", 2983948, 4500);
-    Customer C2("Ahmed", 3948, 8900);
+    Customer C2("Hamdan Khattak", 3948, 8900);
 
-    // Deposit and withdraw — const parameter, but balance changes freely
+    // -- testing deposit and withdraw --
     C2.deposit(2000);
     C2.withdraw(5000);
 
-    // Reading private data safely through getters
-    cout << "\nC1 name    via getter : " << C1.getName() << endl;
-    cout << "C1 balance via getter : " << C1.getBalance() << endl;
-
-    // Setter for name — valid call updates, invalid call is rejected
+    // -- testing setters --
     C1.setName("Hamad Khan");
-    // C1.setName(""); // rejected — name stays "Hamad Khan"
+    // C1.setName(""); // rejected — name stays unchanged
     cout << "C1 name after setName       : " << C1.getName() << endl;
 
-    // Setter for balance — uses diff trick internally
     C1.setBalance(6000);
     cout << "C1 balance after setBalance : " << C1.getBalance() << endl;
 
-    // Display full details
+    // -- displaying full details --
     C1.display();
     C2.display();
 
-    // Const object — locked after creation
-    // Only const functions (getters, display) can be called on it
-    const Customer C6("Zara", 1111, 5000);
+    // -- const object --
+    // Locked after creation. Only const functions can be called on it.
+    const Customer C6("Rihaboo", 1111, 5000);
     cout << "\nC6 name    : " << C6.getName() << endl;
     cout << "C6 balance : " << C6.getBalance() << endl;
     C6.display();
-    // C6.deposit(100); // ERROR — deposit() is not const, cannot modify a const object
+    // C6.deposit(100); // ERROR — deposit() is not const
 
-    // Static function — called on the class itself, not on any object
+    // -- static function --
+    // Called on the class itself, not on any object
     Customer::accessStatic();
 
     return 0;
