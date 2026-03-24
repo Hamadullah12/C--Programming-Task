@@ -33,12 +33,15 @@ private:
     // Only one copy exists in memory — these are bank-wide records.
     static int totalBalance;
     static int totalCustomer;
+    // Helper Functions
+    bool validateAmount(const int amount) const;
+    bool validateWithdraw(const int amount) const;
 
 public:
     // Constructor — called automatically when an object is created.
     Customer(string name, int acc_num, int balance);
 
-    // Getters — like a window. You can see the value but not touch it.
+    // Getters like a window. You can see the value but not touch it.
     // Always const because they never modify the object.
     string getName() const;
     int getAccNum() const;
@@ -160,6 +163,30 @@ void Customer::withdraw(const int amount)
     }
 }
 
+// Helper Functions
+bool Customer::validateAmount(const int amount) const
+{
+    if (amount > 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Customer::validateWithdraw(const int amount) const
+{
+    if (amount <= balance)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 // Display
 // const function — only reads data, never changes anything.
 // This is why a const object can safely call it.
