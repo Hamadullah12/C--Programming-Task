@@ -61,25 +61,25 @@ using namespace std;
 class bank
 {
 private:
-    string name;
     int acc;
+    int tax;
     int bal;
 
 public:
-    bank(string n, int a, int b) : name(n), acc(a), bal(b) {};
+    bank(int t, int a, int b) : acc(a), tax(acc + t), bal(b) {};
     ~bank()
     {
-        cout << name << "destroyed" << endl;
+        cout << tax << "destroyed" << endl;
     }
     void dis()
 
     {
-        cout << "Name" << name << " accunt" << acc << "balance" << bal << endl;
+        cout << "Name" << tax << " accunt" << acc << "balance" << bal << endl;
     }
 };
 int main()
 {
-    bank *b = new bank("Ali", 1283129, 1893);
+    bank *b = new bank(45, 1283129, 1893);
     b->dis();
     delete b;
     b = nullptr;
